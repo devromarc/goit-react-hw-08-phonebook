@@ -1,7 +1,7 @@
-import { ContactForm } from '../components/ContactForm/ContactForm';
-import { Filter } from '../components/Filter/Filter';
-import { ContactList } from '../components/ContactList/ContactList';
-import css from './App.module.css';
+import { ContactForm } from '../../components/ContactForm/ContactForm';
+import { Filter } from '../../components/Filter/Filter';
+import { ContactList } from '../../components/ContactList/ContactList';
+import css from './ContactPage.module.css';
 
 export const ContactPage = () => {
   return (

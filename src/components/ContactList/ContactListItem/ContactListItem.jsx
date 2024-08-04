@@ -5,7 +5,7 @@ import css from './ContactListItem.module.css';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useDispatch } from 'react-redux';
 // import { deleteContacts } from '../../redux/contactsSlice';
-import { deleteContact } from '../../redux/operations';
+import { deleteContact } from '../../../redux/contacts/operations';
 
 export const ContactListItem = ({ filteredContact }) => {
   const dispatch = useDispatch();

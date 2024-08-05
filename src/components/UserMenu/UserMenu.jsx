@@ -12,7 +12,7 @@ export const UserMenu = () => {
 
   const handleLogout = async () => {
     try {
-      await dispatch(logOut()).unwrap();
+      await dispatch(logOut());
       // Redirect to the homepage after successful logout
       navigate('/');
       Notify.success('Thank You!', {

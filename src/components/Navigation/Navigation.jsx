@@ -13,12 +13,13 @@ export const Navigation = () => {
       >
         Home
       </NavLink>
+
       {isLoggedIn && (
         <NavLink
-          to="/tasks"
+          to="/contacts"
           className={({ isActive }) => (isActive ? css.linkActive : css.link)}
         >
-          Tasks
+          Contacts
         </NavLink>
       )}
     </nav>

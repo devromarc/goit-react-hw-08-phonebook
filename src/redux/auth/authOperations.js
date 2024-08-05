@@ -10,7 +10,7 @@ const setAuthHeader = token => {
 
 // Utility to remove JWT
 const clearAuthHeader = () => {
-  axios.defaults.headers.common.Authorization = '';
+  delete axios.defaults.headers.common.Authorization;
 };
 
 /*
@@ -58,6 +58,7 @@ export const logIn = createAsyncThunk(
 export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     await axios.post('/users/logout');
+    // After a successful logout, remove the token from the HTTP header
     clearAuthHeader();
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
@@ -81,6 +82,7 @@ export const refreshUser = createAsyncThunk(
     }
 
     try {
+      setAuthHeader(persistedToken);
       const res = await axios.get('/users/current');
       return res.data;
     } catch (error) {
@@ -88,3 +90,32 @@ export const refreshUser = createAsyncThunk(
     }
   }
 );
+
+// export const refreshUser = createAsyncThunk(
+//   'auth/refresh',
+//   async (_, thunkAPI) => {
+//     // Accessing the state from thunkAPI
+//     const state = thunkAPI.getState();
+//     const token = state.auth.token;
+
+//     if (!token) {
+//       // If there is no token, reject the thunk with a specific message
+//       return thunkAPI.rejectWithValue('No token available');
+//     }
+
+//     try {
+//       // Make the request with the token included in the Authorization header
+//       const response = await axios.get('/users/current', {
+//         headers: {
+//           Authorization: `Bearer ${token}`,
+//         },
+//       });
+//       return response.data;
+//     } catch (error) {
+//       // Return the error message if the request fails
+//       return thunkAPI.rejectWithValue(
+//         error.response?.data?.message || error.message
+//       );
+//     }
+//   }
+// );

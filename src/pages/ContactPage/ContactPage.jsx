@@ -3,7 +3,7 @@ import { Filter } from '../../components/Filter/Filter';
 import { ContactList } from '../../components/ContactList/ContactList';
 import css from './ContactPage.module.css';
 
-export const ContactPage = () => {
+const ContactPage = () => {
   return (
     <>
       <div className={css.container}>
@@ -18,3 +18,5 @@ export const ContactPage = () => {
     </>
   );
 };
+
+export default ContactPage;

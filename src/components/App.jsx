@@ -58,6 +58,3 @@ export const App = () => {
     </div>
   );
 };
-
-// if isLoggedIn is true, we will show the div with the logged in string.
-// if isLoggedIn is false, we will show the div with the logged out string.

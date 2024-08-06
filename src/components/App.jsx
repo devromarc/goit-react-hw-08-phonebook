@@ -8,7 +8,7 @@ import { useAuth } from '../hooks/useAuth';
 import { useDispatch } from 'react-redux';
 import { refreshUser } from '../redux/auth/authOperations';
 
-const HomePage = lazy(() => import('../pages/HomePage'));
+const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const LoginPage = lazy(() => import('../pages/LoginPage'));
 const ContactPage = lazy(() => import('../pages/ContactPage/ContactPage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
@@ -24,7 +24,7 @@ export const App = () => {
   return isRefreshing ? (
     <b>Refreshing user...</b>
   ) : (
-    <>
+    <div className="container">
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<HomePage />} />
@@ -55,7 +55,7 @@ export const App = () => {
         </Route>
         {/* CONTACTS PAGE IS PRIVATE AND IS REDIRECTED TO LOGIN PAGE IF USER IS NOT AUTHENTICATED*/}
       </Routes>
-    </>
+    </div>
   );
 };
 

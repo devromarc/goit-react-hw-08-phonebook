@@ -8,6 +8,7 @@ import {
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchContacts } from '../../redux/contacts/operations';
+import { ClipLoader } from 'react-spinners';
 
 export const ContactList = () => {
   const filteredContacts = useSelector(selectFilteredContacts);
@@ -26,7 +27,8 @@ export const ContactList = () => {
   return (
     <ul>
       {isLoading && !error ? (
-        <h1>Loading.....</h1>
+        // <h1>Loading.....</h1>
+        <ClipLoader />
       ) : filteredContacts.length === 0 && !error ? (
         <p>No Results</p>
       ) : (

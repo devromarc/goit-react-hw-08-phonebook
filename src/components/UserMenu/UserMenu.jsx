@@ -10,9 +10,9 @@ export const UserMenu = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
 
-  const handleLogout = async () => {
+  const handleLogout = () => {
     try {
-      await dispatch(logOut());
+      dispatch(logOut());
       // Redirect to the homepage after successful logout
       navigate('/');
       Notify.success('Thank You!', {
@@ -27,7 +27,7 @@ export const UserMenu = () => {
   return (
     <div className={css.wrapper}>
       <p className={css.username}>Welcome, {user.name}</p>
-      <button type="button" onClick={handleLogout}>
+      <button className={css.btn} type="button" onClick={handleLogout}>
         Logout
       </button>
     </div>

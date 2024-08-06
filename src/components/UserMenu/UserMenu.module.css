@@ -7,3 +7,16 @@
 .username {
   font-weight: 700;
 }
+
+.btn {
+  display: block;
+  margin: 0 auto;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding: 10px;
+  font-size: 15px;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: #c5705d;
+}
